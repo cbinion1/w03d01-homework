@@ -1,6 +1,8 @@
 console.log("linked");
 
 //1. create a Class (JS class)
+$(document).ready(function() {
+    console.log( "ready!" );
 
 class evilLincoln {
 	constructor (hunger, boredom, sleepiness){
@@ -8,22 +10,43 @@ class evilLincoln {
 		this.boredom = boredom;
 		this.sleepiness = sleepiness;
 
-		eat(){
-			this.hunger = hunger--;
+		eat() {
+			if (hunger <= 10)
+				hunger++;
+				alert("Finally!, I'm starving over here!")
+		} else {
+			alert("Don't make me puke!")
 		}
-		sleep(){
-			this.sleepiness = sleepiness--;
+		sleep() {
+			if (sleepiness <= 10; ++)
+				sleepiness++;
+				alert("Yo! I'm sleepy y'all!")
+		} else {
+			alert("Wide awake bitch!")
 		}
-		play(){
-			this.boredom = boredom--;
+		play() {
+			if (boredom <= 10; ++)
+				boredom++;
+				alert("More! More! More!")
+		} else {
+			alert("Sod off!")
 		}
 	}
 }
 
 const lincoln = new evilLincoln(10, 10, 10){
 
-}
+	}
 
+
+
+
+
+
+
+
+
+});
 //2. Instantiate the tamagotchi
 
 //3. Display character of choice on the screen to represent pet
