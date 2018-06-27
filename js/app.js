@@ -4,46 +4,112 @@ console.log("linked");
 $(document).ready(function() {
     console.log( "ready!" );
 
-class evilLincoln {
-	constructor (hunger, boredom, sleepiness){
-		this.hunger = hunger;
-		this.boredom = boredom;
-		this.sleepiness = sleepiness;
-
-		eat() {
-			if (hunger <= 10)
-				hunger++;
-				alert("Finally!, I'm starving over here!")
-		} else {
-			alert("Don't make me puke!")
-		}
-		sleep() {
-			if (sleepiness <= 10; ++)
-				sleepiness++;
-				alert("Yo! I'm sleepy y'all!")
-		} else {
-			alert("Wide awake bitch!")
-		}
-		play() {
-			if (boredom <= 10; ++)
-				boredom++;
-				alert("More! More! More!")
-		} else {
-			alert("Sod off!")
-		}
+class tamagotchi {
+	constructor (hunger, boredom, sleepiness, age){
+		this.hunger = 10;
+		this.boredom = 10;
+		this.sleepiness = 10;
+		this.age = 1
+		
 	}
+	eat() {
+			if (this.hunger < 10){
+				this.hunger++;
+				console.log("Finally!, I'm starving over here!");
+		} else {
+			alert("Fool!! Evil Lincoln does not require food!")
+		};
+	}	
+	sleep() {
+			if (this.sleepiness < 10){
+				this.sleepiness++;
+				console.log("Yo! I'm sleepy y'all!");
+		} else {
+			alert("Wide awake bitch!");
+		}
+	}	
+	play() {
+			if (this.boredom < 10){
+				this.boredom++;
+				console.log("Muwahahahahahaa!")
+		} else {
+			alert("Evil Lincoln is appeased! For now...")
+	}
+};
 }
+let evilLincoln = new tamagotchi(10, 10, 10, 1);
 
-const lincoln = new evilLincoln(10, 10, 10){
+let seconds = 0;
 
+const timePasses = () => {
+			//console.log(`It has been ${seconds} seconds`)
+	seconds++;
+	evilLincoln.hunger--;
+	evilLincoln.sleepiness--;
+	evilLincoln.boredom--;
+	evilLincoln.age++;
+
+		console.log("Sleepiness " + evilLincoln.sleepiness)
+		console.log("Hunger " + evilLincoln.hunger)
+		console.log("Boredom " + evilLincoln.boredom)
+		console.log("Age " + evilLincoln.age)
+
+	if(evilLincoln.hunger == 0|| evilLincoln.boredom == 0 || evilLincoln.sleepiness == 0){
+		alert("EVIL LINCOLN HAS DIED!!")
+		
+		clearInterval(timePassing);
+
+	$("#foody").empty().append(evilLincoln.hunger);
+	// $('.').empty().append(charlie.hunger);
+	// $('.hungry').empty().append(charlie.hunger);
+	// $('.hungry').empty().append(charlie.hunger);
+		}
+		
 	}
 
+const timePassing = setInterval(timePasses, 5000);
 
+$("#set-name").on("click", () => {
 
+	$("h3").append($("#input-box").val());
 
+	console.log("click");
+	console.log($("#input-box").val());
 
+	})
 
+$("#food").on("click", () => {
+	let health = document.getElementById("foody")
+		health.value += 1;
 
+		evilLincoln.eat();
+
+	//console.log("feed me");
+})
+
+$("#sleepytime").on("click", () => {
+	let health = document.getElementById("sleepy")
+		health.value += 1;
+
+		evilLincoln.sleep();
+
+	//console.log("nap time bitches");
+
+})
+
+$("#play").on("click", () => {
+	let health = document.getElementById("bored")
+		health.value += 1;
+
+		evilLincoln.play();
+
+	//console.log(evilLincoln.boredom)
+	//console.log("Iron helps us play!")
+})
+
+const checkForUpdate = () => {
+
+}
 
 
 });

@@ -4,22 +4,49 @@
 	<title>Tamagotchi</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
+	<h3>
+		
+	</h3>
 </head>
 <body>
 
 	<img src="images/EvilLincoln.png" alt="Evil Lincoln" class="evil1">
+		
+		<div class="health-bar" id="foody" data-total="10" data-value="10">
+  			<div class="bar">
+  	  			<div class="hit">Food</div>
+  			</div>
+		</div>
+		<div class="health-bar" id="sleepy" data-total="10" data-value="10">
+  			<div class="bar">
+  	  			<div class="hit">Sleepyness</div>
+  			</div>
+		</div>
+		<div class="health-bar" id="bored" data-total="10" data-value="10">
+  			<div class="bar">
+  	  			<div class="hit">Boredom</div>
+  			</div>
+		</div>
+
 		<div class=doing-stuff>
-			<button class=feed-me>Feed Me Dammit!</button>
-			<button class=sleep-me>Shhh! This is why we're here...</button>
-			<button class=play-me>Cat's in the cradle...</button>
+			<button type="button" id="food" class="btn btn-danger">Feed me!</button>
+			<button type="button" id="sleepytime" class="btn btn-success">Shhhh! This is why we're here...</button>
+			<button type="button" id="play" class="btn btn-info">Cat's in the cradle...</button>
 		</div>
 		<div class=naming>
-			<input type="text" name="name">
-			<button class=set-name>Set Name</button>
+			<input type="text" id="input-box" placeholder="Enter Name" name="name">
+			<button type="button" id="set-name" class="btn btn-dark">Start Game</button>
 		</div>
 
+	
 
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
 
-<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
