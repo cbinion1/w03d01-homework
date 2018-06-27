@@ -63,11 +63,15 @@ const timePasses = () => {
 	if(seconds % 1 == 0){
 		evilLincoln.age++;
 	}
+	if(evilLincoln.age === 10){
+		alert("Evil Lincoln has evolved!")
+		$(".evil1").attr("src", "images/EvilLincoln.gif");
+	}
 
-		console.log("Sleepiness " + evilLincoln.sleepiness)
-		console.log("Hunger " + evilLincoln.hunger)
-		console.log("Boredom " + evilLincoln.boredom)
-		console.log("Age " + evilLincoln.age)
+		// console.log("Sleepiness " + evilLincoln.sleepiness)
+		// console.log("Hunger " + evilLincoln.hunger)
+		// console.log("Boredom " + evilLincoln.boredom)
+		// console.log("Age " + evilLincoln.age)
 
 	 $('#food-bar').css("width", (evilLincoln.hunger * 10)+ "%");
 	 $('#sleep-bar').css("width", (evilLincoln.sleepiness * 10)+ "%");
@@ -76,13 +80,8 @@ const timePasses = () => {
 
 	if(evilLincoln.hunger == 0|| evilLincoln.boredom == 0 || evilLincoln.sleepiness == 0){
 		alert("EVIL LINCOLN HAS DIED!!")
-		
+		$(".evil1").attr("src", "images/deadLincoln.jpg")
 		clearInterval(timePassing);
-
-	//$("#").empty().append(evilLincoln.hunger);
-	// $('.sleepiness').empty().append(evilLincoln.sleepiness);
-	// $('.boredom').empty().append(evilLincoln.boredom);
-	// $('.age').empty().append(evilLincoln.age);
 		}
 		
 	}
@@ -121,15 +120,12 @@ $("#play").on("click", () => {
 })
 
 
+
+
+
+
+
 });
-
-
-
-//4. Display following metrics; Hunger(1-10 scale), Sleepiness(1-10), Boredom(1-10), Age.
-
-//11. Morph pet at certain ages.
-
-//12. Animate the pet across the screen.
 
 
 
