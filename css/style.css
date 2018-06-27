@@ -12,7 +12,7 @@ body {
 	margin-right: auto;
 	width: 50%;
 	border-radius: 40%;
-	border: 10px solid black;
+	border: 10px solid pink;
 }
 .doing-stuff {
 	margin-left: auto;
@@ -39,7 +39,7 @@ body {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  width: 200px;
+  width: 300px;
   height: 20px;
   padding: 5px;
   background: #ddd;
@@ -75,8 +75,12 @@ h3 {
 	font-family: 'Shrikhand', cursive;
 	color: pink;
 }
-
-
+.progress. {
+	margin-left: auto;
+  	margin-right: auto;
+  	margin-top: 10px;
+  	width: 300px;
+}
 
 
 
