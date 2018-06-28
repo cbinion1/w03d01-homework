@@ -16,7 +16,7 @@ class tamagotchi {
 				this.hunger++;
 				console.log("Finally! I'm starving over here!");
 		} else {
-			alert("Fool!! Evil Lincoln does not require food!")
+			alert("Fool!! I do not require food!")
 		};
 
 	}	
@@ -39,7 +39,24 @@ class tamagotchi {
 }
 let evilLincoln = new tamagotchi(10, 10, 10, 1);
 //----------------------------------------------------------------------
+//---------------Movement functionality----------------------
+function moveRight() {
+    $(".evil1").animate({left: "+=50"}, 500, function() {
+        moveLeft();
+    });
+}
 
+function moveLeft(){
+    $(".evil1").animate({left: "-=50"}, 500, function () {
+        setTimeout(moveRight, 50);
+    });
+}
+
+moveRight();
+moveLeft();
+
+setTimeout(moveRight, 50); 
+//-------------------------------------------------------------
 //---------------------------------Timing Functionality------------------------------
 //$(".gamego").on("click", (e) => {
 let seconds = 0;
@@ -62,11 +79,11 @@ const timePasses = () => {
 	if(seconds % 6 == 0){
 		evilLincoln.sleepiness--;
 	}
-	if(seconds % 10 == 0){
+	if(seconds % 1 == 0){
 		evilLincoln.age++;
 	}
 	if(evilLincoln.age === 10){
-		alert("Evil Lincoln has evolved!")
+		alert("Lincoln is transmogrifying!")
 		$(".evil1").attr("src", "images/EvilLincoln.gif");
 	}
 
@@ -82,8 +99,11 @@ const timePasses = () => {
 
 	if(evilLincoln.hunger == 0|| evilLincoln.boredom == 0 || evilLincoln.sleepiness == 0){
 		alert("EVIL LINCOLN HAS DIED!!")
+		// $(".evil1").stop();
 		$(".evil1").attr("src", "images/deadLincoln.jpg")
+		
 		clearInterval(timePassing);
+		$(".evil1").stop();
 		}
 		
 	}
@@ -98,7 +118,7 @@ $("#set-name").on("click", () => {
 	$("h3").append($("#input-box").val());
 
 	
-	$("#set-name").replaceWith("<button class='gamego'>Start Game</button>");
+	//$("#set-name").replaceWith("<button class='gamego'>Start Game</button>");
 
 	})
 //----------------------------------------------------------------------------
@@ -106,38 +126,25 @@ $("#set-name").on("click", () => {
 $("#food").on("click", () => {
 
 		evilLincoln.eat();
-	//console.log("feed me");
+	console.log("gimme food dammit!");
 })
 $("#sleepytime").on("click", () => {
 
 		evilLincoln.sleep();
-	//console.log("nap time bitches");
+	console.log("nap time bitches");
 })
 $("#play").on("click", () => {
 
 		evilLincoln.play();
-	//console.log("Iron helps us play!")
+	console.log("Iron helps us play!")
+})
+$("#lights-out").on("click", () => {
+	$(".evil1").fadeToggle("fast", "swing");
+	console.log("Nighty-night motherfucker!")
 })
 //-------------------------------------------
 
-//---------------Movement functionality----------------------
-function moveRight() {
-    $(".evil1").animate({left: "+=50"}, 2000, function() {
-        moveLeft();
-    });
-}
 
-function moveLeft(){
-    $(".evil1").animate({left: "-=50"}, 2000, function () {
-        setTimeout(moveRight, 50);
-    });
-}
-
-moveRight();
-moveLeft();
-
-setTimeout(moveRight, 50); 
-//-------------------------------------------------------------
 
 });
 
