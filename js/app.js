@@ -1,9 +1,8 @@
 //console.log("linked");
 
-//1. create a Class (JS class)
 $(document).ready(function() {
     console.log( "ready!" );
-
+//-----------------------------Class and Instantiation------------------
 class tamagotchi {
 	constructor (hunger, boredom, sleepiness, age){
 		this.hunger = hunger;
@@ -39,7 +38,10 @@ class tamagotchi {
 };
 }
 let evilLincoln = new tamagotchi(10, 10, 10, 1);
+//----------------------------------------------------------------------
 
+//---------------------------------Timing Functionality------------------------------
+//$(".gamego").on("click", (e) => {
 let seconds = 0;
 
 const timePasses = () => {
@@ -57,10 +59,10 @@ const timePasses = () => {
 	if(seconds % 5 == 0){
 		evilLincoln.boredom--;
 	}
-	if(seconds % 10 == 0){
+	if(seconds % 6 == 0){
 		evilLincoln.sleepiness--;
 	}
-	if(seconds % 1 == 0){
+	if(seconds % 10 == 0){
 		evilLincoln.age++;
 	}
 	if(evilLincoln.age === 10){
@@ -75,7 +77,7 @@ const timePasses = () => {
 
 	 $('#food-bar').css("width", (evilLincoln.hunger * 10)+ "%");
 	 $('#sleep-bar').css("width", (evilLincoln.sleepiness * 10)+ "%");
-	 $('#boredome-bar').css("width", (evilLincoln.boredom * 10)+ "%");
+	 $('#boredom-bar').css("width", (evilLincoln.boredom * 10)+ "%");
 	 $('#age-bar').css("width", (evilLincoln.age * 10)+ "%");
 
 	if(evilLincoln.hunger == 0|| evilLincoln.boredom == 0 || evilLincoln.sleepiness == 0){
@@ -87,43 +89,55 @@ const timePasses = () => {
 	}
 
 const timePassing = setInterval(timePasses, 1000);
+//})
+//--------------------------------------------------------------------------------------------
 
+//--------------------Name and Game Start functionality-----------------------
 $("#set-name").on("click", () => {
 
 	$("h3").append($("#input-box").val());
 
-	console.log("click");
-	console.log($("#input-box").val());
+	
+	$("#set-name").replaceWith("<button class='gamego'>Start Game</button>");
 
 	})
-
+//----------------------------------------------------------------------------
+//---------Button Functionality-------------
 $("#food").on("click", () => {
 
 		evilLincoln.eat();
-
 	//console.log("feed me");
 })
-
 $("#sleepytime").on("click", () => {
 
 		evilLincoln.sleep();
-
 	//console.log("nap time bitches");
-
 })
-
 $("#play").on("click", () => {
 
 		evilLincoln.play();
-
 	//console.log("Iron helps us play!")
 })
+//-------------------------------------------
 
+//---------------Movement functionality----------------------
+function moveRight() {
+    $(".evil1").animate({left: "+=50"}, 2000, function() {
+        moveLeft();
+    });
+}
 
+function moveLeft(){
+    $(".evil1").animate({left: "-=50"}, 2000, function () {
+        setTimeout(moveRight, 50);
+    });
+}
 
+moveRight();
+moveLeft();
 
-
-
+setTimeout(moveRight, 50); 
+//-------------------------------------------------------------
 
 });
 
